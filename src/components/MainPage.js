@@ -1,17 +1,16 @@
-import React, {useState, useRef, useEffect} from 'react';
+import React, {useState, useEffect} from 'react';
 import './MainPage.css';
 import '../index.css';
 import Header from './Header';
 import AddNewTask from './AddNewTask';
 import TaskCard from './TaskCard';
-import TaskCardDescription from './TaskCardDescription';
-import DeleteMessage from './DeleteMessage';
-import SubtaskDetail from './SubtaskDetail';
+
+
 
 const MainPage = () => {
  const [showAddNewTask, setShowAddNewTask]= useState(false);
 
- const taskDisplay = useRef(null);
+
  const showAddNewTaskHandler =()=>{
     setShowAddNewTask(!showAddNewTask)
  }
