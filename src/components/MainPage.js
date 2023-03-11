@@ -22,14 +22,17 @@ const MainPage = () => {
     container.addEventListener('mousedown', (e)=>{
        pressed=true;
        startX = e.clientX
+       this.style.cursor='grabbing';
     
     })
     container.addEventListener('mouseleave', (e)=>{
         pressed=false;
+       
         
      })
      window.addEventListener('mouseup', (e)=>{
         pressed=false;
+        container.style.cursor='grab';
         
      })
      container.addEventListener('mousemove', (e)=>{

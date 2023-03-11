@@ -51,7 +51,8 @@
         scroll-snap-type: x;
         scroll-behavior: smooth;
         scrollbar-width: none;
-        margin-left: 1rem;  
+        margin-left: 1rem;
+        cursor:grab; 
     }
 
      .task-display::-webkit-scrollbar {
@@ -61,5 +62,6 @@
     .task-display article{
         flex:0 0 90%;
         scroll-snap-align: start;
+        user-select: none;
     }
  }
