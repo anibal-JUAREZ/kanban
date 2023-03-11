@@ -8,9 +8,27 @@ import TaskCard from './TaskCard';
 
 
 const MainPage = () => {
- const [showAddNewTask, setShowAddNewTask]= useState(false);
+//ALL THE TASKS
+const [allTasks, setAllTasks]=useState([]);
+//VARIABLE SHOW THE NEW TASK WINDOW
+const [showAddNewTask, setShowAddNewTask]= useState(false);
 
+//CALCULATING HOW MANY TODO, DOING, DONE TAKS EXISTE
+let toDoTask=0;
+let doingTask=0;
+let doneTask=0;
 
+allTasks.forEach(task=>{
+    if(task.status==='Todo'){
+        toDoTask++;
+    }else if(task.status==='Doing'){
+        doingTask++;
+    }else{
+        doneTask++;
+    }
+})
+
+//FUNCTION TO CHANGE THE VARAIBLE STATE SHOW THE NEW TASK WINDOW
  const showAddNewTaskHandler =()=>{
     setShowAddNewTask(!showAddNewTask)
  }
@@ -43,7 +61,44 @@ const MainPage = () => {
      })
  },[])
 
+//ADD A NEW TASK FUNCTION
+const addNewTask=(task)=>{
+    setAllTasks(state=>{
+        let id=0;
+        const copy = [...state];
+        if(copy.length ===0){
+            id=0;
+        }else{
+            copy.forEach(task=>{
+                if(task.id >id){
+                    id=task.id
+                }
+            })
+        }
+        task.id=id+1;
+        copy.push(task);
+        console.log(copy);
+        return copy;
 
+    })
+    setShowAddNewTask(false);
+}
+//CHANGE THE SUBTASK STATE
+const changeTheSubtask=(idTask, idSubtask)=>{
+    setAllTasks(state=>{
+        const copy = [...state];
+        const indexTask=copy.findIndex(e=>e.id===idTask);
+        const indexSubtask=copy[indexTask].subtasks.findIndex(e=>e.id===idSubtask)
+        if(copy[indexTask].subtasks[indexSubtask].status==='active'){
+            copy[indexTask].subtasks[indexSubtask].status='completed'
+        }else{
+            copy[indexTask].subtasks[indexSubtask].status='active'
+        }
+        console.log(copy);
+        return copy;
+        })
+   
+}
   return (
     <div>
         <Header showAddNewTaskHandler={showAddNewTaskHandler}/>
@@ -52,36 +107,70 @@ const MainPage = () => {
                 <article>
                     <section className='title'>
                         <div className='circle'></div>
-                        <p>TODO (4)</p>
+                        <p>{`TODO (${toDoTask})`}</p>
                     </section>
                     <section className='all-tasks-display'>
-                        <TaskCard/>
-                        <TaskCard/>
+                        {allTasks.map(task=>{
+                            if(task.status==='Todo'){
+                                return <TaskCard
+                                    key={task.id}
+                                    id={task.id}
+                                    title={task.title}
+                                    description={task.description}
+                                    subtasks={task.subtasks}
+                                    status={task.status}
+                                    changeTheSubtask={changeTheSubtask}
+                                />
+                            }
+                        })}
+                       
                     </section>
                 </article>
                 <article>
                     <section className='title'>
                         <div className='circle'></div>
-                        <p>DOING (6)</p>
+                        <p>{`DOING (${doingTask})`}</p>
                     </section>
                     <section className='all-tasks-display'>
-                        <TaskCard/>
-                        <TaskCard/>
+                    {allTasks.map(task=>{
+                            if(task.status==='Doing'){
+                                return <TaskCard
+                                    key={task.id}
+                                    id={task.id}
+                                    title={task.title}
+                                    description={task.description}
+                                    subtasks={task.subtasks}
+                                    status={task.status}
+                                    changeTheSubtask={changeTheSubtask}
+                                />
+                            }
+                        })}
                     </section>
                 </article>
                 <article>
                     <section className='title'>
                         <div className='circle'></div>
-                        <p>DONE (7)</p>
+                        <p>{`Done (${doneTask})`}</p>
                     </section>
                     <section className='all-tasks-display'>
-                        <TaskCard/>
-                        <TaskCard/>
+                    {allTasks.map(task=>{
+                            if(task.status==='Done'){
+                                return <TaskCard
+                                    key={task.id}
+                                    id={task.id}
+                                    title={task.title}
+                                    description={task.description}
+                                    subtasks={task.subtasks}
+                                    status={task.status}
+                                    changeTheSubtask={changeTheSubtask}
+                                />
+                            }
+                        })}
                     </section>
                 </article>
             </section>
         
-        {showAddNewTask && <AddNewTask showAddNewTaskHandler={showAddNewTaskHandler}/>}
+        {showAddNewTask && <AddNewTask showAddNewTaskHandler={showAddNewTaskHandler} addNewTask={addNewTask}/>}
     </div>
   )
 }

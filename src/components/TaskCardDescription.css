@@ -27,15 +27,16 @@
      display: flex;
      align-items: center;
      justify-content: space-between;
+     margin-bottom: 1.5rem;
     }
 
    .task-detail-description .header-task h3{
         width: 90%;
-        margin-bottom: 1.5rem;
+       
    }
 
    .task-detail-description .header-task svg{
-    margin-top: -3rem;
+    
     cursor: pointer;
 }
 

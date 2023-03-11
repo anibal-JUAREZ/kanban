@@ -2,20 +2,31 @@ import React, {useState} from 'react';
 import './TaskCard.css';
 import TaskCardDescription from './TaskCardDescription';
 
-const TaskCard = () => {
+const TaskCard = (props) => {
 
   const [showTaskDescription, setShowTaskDescription]= useState(false);
-
-  const showTaskDescriptionHandler = ()=>{
+ 
+  //CALCULATING THE SUBTASKS WITH STATUS ACTIVE
+  let tasksActive=0;
+  props.subtasks.forEach(task => {
+    if(task.status==="active"){
+      tasksActive++;
+    }
+  });
+    const showTaskDescriptionHandler = ()=>{
     setShowTaskDescription(!showTaskDescription)
+  }
+  //RECEIVING THE TASKID AND SUBTASKID 
+  const getInformationSubtaskState=(idTask, idSubtask)=>{
+    props.changeTheSubtask(idTask,idSubtask);
   }
   return (
     <>
         <div onClick={showTaskDescriptionHandler} className='task-card'>
-            <h3>Build UI for onbording flow</h3>
-            <p> 0 of 3 substasks</p>
+            <h3>{props.title}</h3>
+            <p>{`${tasksActive} of ${props.subtasks.length} substasks`}</p>
         </div>
-        {showTaskDescription && <TaskCardDescription showTaskDescriptionHandler={showTaskDescriptionHandler}/>}
+        {showTaskDescription && <TaskCardDescription showTaskDescriptionHandler={showTaskDescriptionHandler} taskInformation={props} getInformationSubtaskState={getInformationSubtaskState}/>}
     </>
   )
 }
