@@ -1,0 +1,101 @@
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 9;
+    background-color: #000000;
+  }
+
+  .new-task-form {
+    position: fixed;
+    top: 20vh; 
+    left: 30%;
+    width: 40%;
+    color: #fff;
+     z-index: 10;
+     background-color: #2B2C37;
+     border: none;
+     box-shadow: 2px 4px 12px rgb(0 0 0 / 8%);
+     border-radius: 0.5rem;
+     padding: 1.5rem;
+     /* overflow: hidden; */
+   }
+   
+   .new-task-form h3{
+    font-weight: 400;
+    margin-bottom: 1rem;
+   }
+
+   .display{
+    display: flex;
+    flex-direction: column;
+    margin: 1rem 0;
+   }
+
+   input, textarea{
+    margin-top: 1rem;
+    background-color: #2B2C37;
+    border: 1px solid #828FA3;
+    border-radius: .25rem;
+    padding: .5rem 0;
+    color: #fff;
+   }
+
+   .subtasks .subtask-information input{
+        width:90%;  
+        margin-bottom:1rem
+   }
+
+   .subtasks .subtask-information svg{
+    margin-left: 1.5rem;
+    }
+
+    .subtasks .add-new-task{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    color: #635FC7;
+    border: none;
+    padding: .9rem 1.5rem;
+    width: 100%;
+    border-radius: 3rem;
+    cursor: pointer;
+    }
+
+    .new-task-form .create-task{
+    background-color: #A8A4FF;
+    color: #fff;
+    border: none;
+    padding: .9rem 1.5rem;
+    width: 100%;
+    border-radius: 3rem;
+    cursor: pointer;
+    }
+
+    .new-task-form .display select{
+        background-color: #2B2C37;
+        border: 1px solid #828FA3;
+        border-radius: .25rem;
+        padding: .5rem 1rem;
+        color: #fff;
+   }
+
+   /* RESPONSIVE  */
+
+   @media screen and (max-width:460px){
+    .new-task-form {
+      width: 85%;
+      left: 7%;
+    }
+
+    .subtasks .subtask-information input{
+      width:80%;  
+      margin-bottom:1rem
+ }
+ 
+
+   }  
+    

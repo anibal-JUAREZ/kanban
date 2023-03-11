@@ -1,0 +1,82 @@
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 9;
+    background-color: transparent;
+  }
+
+  .delete-message {
+    position: absolute;
+    left: 50%;
+    top: 50%;  
+    transform: translate(-50%, -50%);
+     width: 40%;
+    color: #fff;
+     z-index: 10;
+     background-color: #2B2C37;
+     border: none;
+     box-shadow: 2px 4px 12px rgb(0 0 0 / 8%);
+     border-radius: 0.5rem;
+     padding: 3rem;
+     /* overflow: hidden; */
+   }
+
+   .delete-message h4{
+    color: #EA5555;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+   }
+
+   .delete-message p{
+    color:#828FA3;
+    font-size: .9rem;
+    margin-bottom: 1rem;
+   }
+
+   .action-delete-task{
+    display: flex;
+    justify-content: center;
+    }
+
+   .action-delete-task button{
+    width: 50%;
+    margin: 0 .5rem;
+    padding: .8rem .7rem;
+    border-radius: 5rem;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+   }
+
+   .action-delete-task button:last-of-type{
+    background-color: #fff;
+    color: #635FC7;
+   }
+  
+   .action-delete-task button:first-of-type{
+    background-color: #EA5555;
+    color: #fff;
+   }
+
+   /* RESPONSIVE */
+
+   @media screen and (max-width:460px){
+    .delete-message {
+        width: 90%;
+    }
+
+    .action-delete-task{
+        flex-direction: column;
+    }
+
+    .action-delete-task button{
+        width: 90%;
+    }
+
+    .action-delete-task button:last-of-type{
+        margin-top: 1rem;
+       }
+}

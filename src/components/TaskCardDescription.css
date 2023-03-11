@@ -1,0 +1,107 @@
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 9;
+    background-color: transparent;
+  }
+
+  .task-detail-description {
+    position: fixed;
+    top: 20vh; 
+    left: 30%;
+     width: 40%;
+    color: #fff;
+     z-index: 10;
+     background-color: #2B2C37;
+     border: none;
+     box-shadow: 2px 4px 12px rgb(0 0 0 / 8%);
+     border-radius: 0.5rem;
+     padding: 2rem;
+     /* overflow: hidden; */
+   }
+
+   .task-detail-description .header-task{
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+    }
+
+   .task-detail-description .header-task h3{
+        width: 90%;
+        margin-bottom: 1.5rem;
+   }
+
+   .task-detail-description .header-task svg{
+    margin-top: -3rem;
+    cursor: pointer;
+}
+
+   .task-detail-description .description{
+    margin-bottom: 1rem;
+    color: #828FA3;
+    font-size: .8rem;
+    line-height: 23px;
+}
+
+.task-detail-description p:nth-child(3)
+{
+    font-size: .8rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+}
+
+.task-detail-description .status
+{
+    font-size: .8rem;
+    font-weight: 800;
+    margin: 1rem 0;
+}
+
+.task-detail-description select{
+    width: 100%;
+    padding: .7rem 1rem;
+    background-color: transparent;
+    border: 1px solid #828FA3;
+    border-radius: .25rem;
+    color: #fff;
+}
+.crud-actions{
+    width: 40%;
+    background-color: #20212C;
+    padding: 1rem;
+    font-size: .8rem;
+    border-radius: .5rem;
+    position: absolute;
+    top: 4.5rem;
+    right: -6rem;
+    
+}
+
+.crud-actions .edit-task{
+    color: #828FA3;
+    padding: .5rem;
+}
+
+.crud-actions .delete-task{
+    padding: .5rem;
+    color: #EA5555;
+}
+
+
+ /* RESPONSIVE  */
+
+ @media screen and (max-width:460px){
+    .task-detail-description {
+        width: 85%;
+        left: 7%;
+      }
+    
+    .crud-actions{
+        width: 60%;
+        top: 5.5rem;
+        right: 1rem;
+     }
+ }

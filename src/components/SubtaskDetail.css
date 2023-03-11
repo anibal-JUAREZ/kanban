@@ -1,0 +1,28 @@
+.check-subtask{
+    display: flex;
+    align-items: center;
+    padding: .7rem ;
+    background-color: #20212C;
+    border-radius: .25rem;
+    margin: 0.5rem 0;
+}
+
+.check{
+    width: 1rem;
+    height: 1rem;
+    border: 1px solid #828FA3;
+    margin-right: 1rem;
+    cursor: pointer;
+}
+
+.check-subtask p{
+    font-size: .8rem;
+}
+
+ /* RESPONSIVE  */
+
+ @media screen and (max-width:460px){
+    .check-subtask p {
+    width: 90%;
+    }
+ }

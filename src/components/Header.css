@@ -1,0 +1,70 @@
+header{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 3rem 2rem;
+    background-color: #2B2C37;
+}
+
+header .logo-mobile{
+    display: none;
+}
+
+header p{
+    color: #fff;
+    font-weight: 800;
+    width: 70%;
+    text-align: left;
+    font-size: 1.5rem;
+}
+
+header button{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #635FC7;
+    border: none;
+    padding: .9rem 1.5rem;
+    width: 10rem;
+    border-radius: 3rem;
+    cursor: pointer;
+}
+
+header button svg{
+    width: .7rem;
+    height: .7rem;
+}
+
+header button p{
+    font-size: .7rem;
+}
+
+
+/* RESPONSIVE  */
+
+@media screen and (max-width:460px){
+
+    header .logo-desktop{
+        display: none;
+    }
+
+    header .logo-mobile{
+        display: block;
+        margin-right: 1rem;
+    }
+
+    header button .add-button-title{
+        display: none;
+    }
+
+    header{
+        padding: 1rem 1rem 2rem;
+     }
+
+    header button{
+        width: 5rem;
+        padding: .9rem 1.5rem;
+    }
+
+}
+
