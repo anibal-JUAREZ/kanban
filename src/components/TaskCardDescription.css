@@ -9,7 +9,7 @@
   }
 
   .task-detail-description {
-    position: fixed;
+    position: absolute;
     top: 20vh; 
     left: 30%;
      width: 40%;

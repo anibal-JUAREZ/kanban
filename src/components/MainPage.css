@@ -50,7 +50,8 @@
         overflow-x:auto;
         scroll-snap-type: x;
         scroll-behavior: smooth;
-        scrollbar-width: none;  
+        scrollbar-width: none;
+        margin-left: 1rem;  
     }
 
      .task-display::-webkit-scrollbar {
