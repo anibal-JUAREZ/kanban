@@ -79,7 +79,7 @@
         background-color: #2B2C37;
         border: 1px solid #828FA3;
         border-radius: .25rem;
-        padding: .5rem 1rem;
+        padding: .7rem 1rem;
         color: #fff;
    }
 
@@ -95,6 +95,10 @@
       width:80%;  
       margin-bottom:1rem
  }
+
+ .new-task-form .display select{
+  width: 99%;
+}
  
 
    }  
