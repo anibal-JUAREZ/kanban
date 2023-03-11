@@ -46,11 +46,16 @@
     line-height: 23px;
 }
 
-.task-detail-description p:nth-child(3)
+.task-detail-description p:nth-child(3):not(.task-detail-description .description)
 {
     font-size: .8rem;
     font-weight: 800;
     margin-bottom: 1rem;
+}
+
+.task-detail-description p:nth-of-type(2){
+    font-size: .8rem;
+    font-weight: 800;
 }
 
 .task-detail-description .status

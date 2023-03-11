@@ -22,7 +22,7 @@ const MainPage = () => {
     container.addEventListener('mousedown', (e)=>{
        pressed=true;
        startX = e.clientX
-       this.style.cursor='grabbing';
+       container.style.cursor='grabbing';
     
     })
     container.addEventListener('mouseleave', (e)=>{
@@ -39,7 +39,7 @@ const MainPage = () => {
         if(!pressed){
             return
         }
-        this.scrollLeft += startX - e.clientX
+        container.scrollLeft += startX - e.clientX
      })
  },[])
 
