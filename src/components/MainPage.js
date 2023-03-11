@@ -17,11 +17,28 @@ const MainPage = () => {
 
  useEffect(()=>{
     const container = document.querySelector('.task-display');
-    container.addEventListener('wheel', (e)=>{
-        e.preventDefault();
-        container.scrollLeft += e.deltaY;
+    let pressed=false;
+    let startX=0;
+    container.addEventListener('mousedown', (e)=>{
+       pressed=true;
+       startX = e.clientX
+    
     })
- })
+    container.addEventListener('mouseleave', (e)=>{
+        pressed=false;
+        
+     })
+     window.addEventListener('mouseup', (e)=>{
+        pressed=false;
+        
+     })
+     container.addEventListener('mousemove', (e)=>{
+        if(!pressed){
+            return
+        }
+        this.scrollLeft += startX - e.clientX
+     })
+ },[])
 
 
   return (

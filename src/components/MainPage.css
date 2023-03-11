@@ -47,9 +47,9 @@
 @media screen and (max-width:460px){
 
     .task-display{
-       
-        overflow-x:hidden;
-        
+        overflow-x:auto;
+        scroll-snap-type: x;
+        scroll-behavior: smooth;
         scrollbar-width: none;  
     }
 
@@ -59,6 +59,6 @@
 
     .task-display article{
         flex:0 0 90%;
-    
+        scroll-snap-align: start;
     }
  }
