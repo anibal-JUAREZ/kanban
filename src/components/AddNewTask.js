@@ -15,16 +15,16 @@ const Modal = (props) =>{
 
 
     //CHANGE THE ERROR STATE
-    const changeErrorState=(e)=>{
-        const property = e.target.dataset.property;
-        setError(state=>{
-            if(newTask[property]===''){
-                return {...state, [property]:true}
-            }else{
-                return {...state, [property]:false}
-            }
-        })
-    }
+    // const changeErrorState=(e)=>{
+    //     const property = e.target.dataset.property;
+    //     setError(state=>{
+    //         if(newTask[property]===''){
+    //             return {...state, [property]:true}
+    //         }else{
+    //             return {...state, [property]:false}
+    //         }
+    //     })
+    // }
      
     //GET THE SUBSTASK VALUE
     const getSubtaskValue=(e)=>{

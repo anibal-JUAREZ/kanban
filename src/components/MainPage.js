@@ -120,8 +120,10 @@ const changeTheSubtask=(idTask, idSubtask)=>{
                         <p>{`TODO (${toDoTask})`}</p>
                     </section>
                     <section className='all-tasks-display'>
-                        {allTasks.map(task=>{
-                            if(task.status==='Todo'){
+                        {allTasks
+                        .filter(task=>task.status==='Todo')
+                        .map(task=>{
+                           
                                 return <TaskCard
                                     key={task.id}
                                     id={task.id}
@@ -132,7 +134,7 @@ const changeTheSubtask=(idTask, idSubtask)=>{
                                     changeTheSubtask={changeTheSubtask}
                                     deleteTask={deleteTask}
                                 />
-                            }
+                            
                         })}
                        
                     </section>
@@ -143,8 +145,10 @@ const changeTheSubtask=(idTask, idSubtask)=>{
                         <p>{`DOING (${doingTask})`}</p>
                     </section>
                     <section className='all-tasks-display'>
-                    {allTasks.map(task=>{
-                            if(task.status==='Doing'){
+                    {allTasks
+                    .filter(task=>task.status==='Doing')
+                    .map(task=>{
+                            
                                 return <TaskCard
                                     key={task.id}
                                     id={task.id}
@@ -155,7 +159,7 @@ const changeTheSubtask=(idTask, idSubtask)=>{
                                     changeTheSubtask={changeTheSubtask}
                                     deleteTask={deleteTask}
                                 />
-                            }
+                        
                         })}
                     </section>
                 </article>
@@ -165,8 +169,10 @@ const changeTheSubtask=(idTask, idSubtask)=>{
                         <p>{`Done (${doneTask})`}</p>
                     </section>
                     <section className='all-tasks-display'>
-                    {allTasks.map(task=>{
-                            if(task.status==='Done'){
+                    {allTasks
+                    .filter(task=>task.status==='Done')
+                    .map(task=>{
+                            
                                 return <TaskCard
                                     key={task.id}
                                     id={task.id}
@@ -177,7 +183,7 @@ const changeTheSubtask=(idTask, idSubtask)=>{
                                     changeTheSubtask={changeTheSubtask}
                                     deleteTask={deleteTask}
                                 />
-                            }
+                            
                         })}
                     </section>
                 </article>
