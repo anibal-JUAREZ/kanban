@@ -13,6 +13,16 @@ const [allTasks, setAllTasks]=useState([]);
 //VARIABLE SHOW THE NEW TASK WINDOW
 const [showAddNewTask, setShowAddNewTask]= useState(false);
 
+//DELETE TASK
+const deleteTask=(id)=>{
+    setAllTasks(state=>{
+        const copy=[...state];
+        const index=copy.findIndex(e=>e.id===id);
+        copy.splice(index,1)
+        return copy;
+    })
+}
+
 //CALCULATING HOW MANY TODO, DOING, DONE TAKS EXISTE
 let toDoTask=0;
 let doingTask=0;
@@ -120,6 +130,7 @@ const changeTheSubtask=(idTask, idSubtask)=>{
                                     subtasks={task.subtasks}
                                     status={task.status}
                                     changeTheSubtask={changeTheSubtask}
+                                    deleteTask={deleteTask}
                                 />
                             }
                         })}
@@ -142,6 +153,7 @@ const changeTheSubtask=(idTask, idSubtask)=>{
                                     subtasks={task.subtasks}
                                     status={task.status}
                                     changeTheSubtask={changeTheSubtask}
+                                    deleteTask={deleteTask}
                                 />
                             }
                         })}
@@ -163,6 +175,7 @@ const changeTheSubtask=(idTask, idSubtask)=>{
                                     subtasks={task.subtasks}
                                     status={task.status}
                                     changeTheSubtask={changeTheSubtask}
+                                    deleteTask={deleteTask}
                                 />
                             }
                         })}

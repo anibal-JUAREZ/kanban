@@ -5,12 +5,17 @@ import TaskCardDescription from './TaskCardDescription';
 const TaskCard = (props) => {
 
   const [showTaskDescription, setShowTaskDescription]= useState(false);
+
+  //RECEIVING THE ID TO DELETE
+  const getIdToDelete=(id)=>{
+    props.deleteTask(id);
+  }
  
   //CALCULATING THE SUBTASKS WITH STATUS ACTIVE
-  let tasksActive=0;
+  let tasksCompleted=0;
   props.subtasks.forEach(task => {
-    if(task.status==="active"){
-      tasksActive++;
+    if(task.status==="completed"){
+      tasksCompleted++;
     }
   });
     const showTaskDescriptionHandler = ()=>{
@@ -24,9 +29,9 @@ const TaskCard = (props) => {
     <>
         <div onClick={showTaskDescriptionHandler} className='task-card'>
             <h3>{props.title}</h3>
-            <p>{`${tasksActive} of ${props.subtasks.length} substasks`}</p>
+            <p>{`${tasksCompleted} of ${props.subtasks.length} substasks`}</p>
         </div>
-        {showTaskDescription && <TaskCardDescription showTaskDescriptionHandler={showTaskDescriptionHandler} taskInformation={props} getInformationSubtaskState={getInformationSubtaskState}/>}
+        {showTaskDescription && <TaskCardDescription getIdToDelete={getIdToDelete} showTaskDescriptionHandler={showTaskDescriptionHandler} taskInformation={props} getInformationSubtaskState={getInformationSubtaskState}/>}
     </>
   )
 }

@@ -5,7 +5,7 @@
     width: 100%;
     height: 100vh;
     z-index: 9;
-    background-color: #000000;
+    background-color: rgba(0, 0, 0, 0.21);
   }
 
   .new-task-form {
@@ -73,6 +73,7 @@
     width: 100%;
     border-radius: 3rem;
     cursor: pointer;
+    margin-top: .4rem;
     }
 
     .new-task-form .display select{
@@ -83,6 +84,14 @@
         color: #fff;
    }
 
+   .error{
+      color: #EA5555;
+      font-size: .6rem;
+   }
+  
+.subtasks{
+  margin-top: .5rem;
+}
    /* RESPONSIVE  */
 
    @media screen and (max-width:460px){

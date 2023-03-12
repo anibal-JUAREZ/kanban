@@ -10,7 +10,22 @@ const Modal = (props) =>{
     //NEW TASK INITIAL VALUES 
     const [newTask, setNewTask]=useState({title:"",description:"",subtasks:[], status:""});
     const [subTaskValue, setSubtaskValue]=useState("");
+    const [error, setError]=useState({title:false, description:false,status:false});
+  
 
+
+    //CHANGE THE ERROR STATE
+    const changeErrorState=(e)=>{
+        const property = e.target.dataset.property;
+        setError(state=>{
+            if(newTask[property]===''){
+                return {...state, [property]:true}
+            }else{
+                return {...state, [property]:false}
+            }
+        })
+    }
+     
     //GET THE SUBSTASK VALUE
     const getSubtaskValue=(e)=>{
         setSubtaskValue(e.target.value);
@@ -18,15 +33,44 @@ const Modal = (props) =>{
 
     //ADD NEW TASK
     const sendTaskInformation =()=>{
-        props.addNewTask(newTask)
+        if(!newTask.title){
+            
+            setError(state=>{
+                return {...state, title:true}
+            })
+        }
+        if(!newTask.description){
+            
+            setError(state=>{
+                return {...state, description:true}
+            })
+        }
+        if(!newTask.status){
+            
+            setError(state=>{
+                return {...state, status:true}
+            })
+        }
+        if(newTask.title && newTask.description && newTask.status){
+            props.addNewTask(newTask)
+        }
+        
     }
 
     //GET INPUTS TEXTAREA SELECT INFORMATION
     const getTaskInformation=(e)=>{
+        
         const property = e.target.dataset.property;
         setNewTask(state=>{
             return {...state,  [property] : e.target.value}
         })
+
+        //CHANGE THE ERROR STATE
+        if(e.target.value && error[property]===true){
+            setError(state=>{
+                return {...state,  [property] : false}
+            })
+        }
      }
 
     //ADD SUBTASK
@@ -69,8 +113,9 @@ const Modal = (props) =>{
     <h3>Add New Task</h3>
     <div className='display'>
         <label>Title</label>
-        <input data-property= "title" onChange={getTaskInformation} placeholder='e.g. Take coffee break' type="text"/>
+        <input data-property= "title" onChange={getTaskInformation} placeholder={error.title ? "Can't be empty" :'e.g. Take coffee break'} type="text"/>
     </div>
+   {error.title && <p className='error'>Can't be empty</p>}
     <div className='display'>
         <label>Description</label>
         <textarea onChange={getTaskInformation} data-property= "description" placeholder='e.g. It’s always good to take a break. This 15 minute break will 
@@ -79,6 +124,7 @@ const Modal = (props) =>{
         </textarea>
         
     </div>
+    {error.description &&<p className='error'>Can't be empty</p>}
     <div className='subtasks'>
         <p>Subtasks</p>
         {newTask.subtasks.map(subtask=>(
@@ -107,6 +153,7 @@ const Modal = (props) =>{
             <option value="Done">Done</option>
         </select>
     </div>
+    {error.status && <p className='error'>Can't be empty</p>}
     <button onClick={sendTaskInformation} className='create-task'>Create Task</button>
 </div>
 }
