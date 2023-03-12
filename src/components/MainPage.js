@@ -87,7 +87,7 @@ const addNewTask=(task)=>{
         }
         task.id=id+1;
         copy.push(task);
-        console.log(copy);
+        
         return copy;
 
     })
@@ -104,11 +104,20 @@ const changeTheSubtask=(idTask, idSubtask)=>{
         }else{
             copy[indexTask].subtasks[indexSubtask].status='active'
         }
-        console.log(copy);
+        
         return copy;
         })
    
 }
+    //UPDATE THE TASK
+    const updateTask=(task)=>{
+        setAllTasks(state=>{
+            const copy=[...state];
+            const index=copy.findIndex(e=>e.id===task.id);
+            copy.splice(index, 1, task);
+            return copy;
+        })
+    }
   return (
     <div>
         <Header showAddNewTaskHandler={showAddNewTaskHandler}/>
@@ -133,6 +142,7 @@ const changeTheSubtask=(idTask, idSubtask)=>{
                                     status={task.status}
                                     changeTheSubtask={changeTheSubtask}
                                     deleteTask={deleteTask}
+                                    updateTask={updateTask}
                                 />
                             
                         })}
@@ -158,6 +168,7 @@ const changeTheSubtask=(idTask, idSubtask)=>{
                                     status={task.status}
                                     changeTheSubtask={changeTheSubtask}
                                     deleteTask={deleteTask}
+                                    updateTask={updateTask}
                                 />
                         
                         })}
@@ -182,6 +193,7 @@ const changeTheSubtask=(idTask, idSubtask)=>{
                                     status={task.status}
                                     changeTheSubtask={changeTheSubtask}
                                     deleteTask={deleteTask}
+                                    updateTask={updateTask}
                                 />
                             
                         })}

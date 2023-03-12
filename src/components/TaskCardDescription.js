@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import ReactDom from 'react-dom';
 import DeleteMessage from './DeleteMessage';
 import SubtaskDetail from './SubtaskDetail';
+import EditTask from './EditTask';
 import './TaskCardDescription.css';
 
 const Backdrop = (props)=>{
@@ -31,6 +32,12 @@ const Modal =(props)=>{
     }
   });
 
+  //GET THE TASK TO EDIT
+  const getTaskToEdit = (task)=>{
+    props.getTaskEdited(task);
+    props.showEditModal();
+  }
+
     return <div className='task-detail-description'>
     <div className='header-task'>
         <h3>{props.taskInformation.title}</h3>
@@ -38,7 +45,7 @@ const Modal =(props)=>{
     </div>
 
     {props.showCrudActions && <div className='crud-actions'>
-        <p className='edit-task'>Edit Task</p>
+        <p onClick = {props.showEditModal} className='edit-task'>Edit Task</p>
         <p onClick = {props.showDeleteModal} className='delete-task'>Delete Task</p>
     </div>}
     
@@ -58,7 +65,7 @@ const Modal =(props)=>{
     </select>
     {/* HERE DELETE MODAL */}
     {props.deleteModal && <DeleteMessage sendDeleteIdTask ={sendDeleteIdTask} showDeleteModal ={props.showDeleteModal} taskInformation={props.taskInformation}/>}
- 
+    {props.editModal && <EditTask getTaskToEdit={getTaskToEdit} taskInformation={props.taskInformation} showEditModal={props.showEditModal}/>}
 </div>
 }
 
@@ -66,6 +73,7 @@ const TaskCardDescription = (props) => {
 
     const [showCrudActions, setShowCrudActions]=useState(false);
     const [deleteModal, setDeleteModal]=useState(false);
+    const [editModal, setEditModal]=useState(false);
 
     const showCrudActionsHandler = ()=>(
         setShowCrudActions(!showCrudActions)
@@ -73,10 +81,13 @@ const TaskCardDescription = (props) => {
     const showDeleteModal=()=>{
         setDeleteModal(!deleteModal)
     }
+    const showEditModal=()=>{
+        setEditModal(!editModal)
+    }
   return (
         <>  
             {ReactDom.createPortal(<Backdrop hideTaskDescription={props.showTaskDescriptionHandler}/>, document.getElementById('backdrop-root'))}
-            {ReactDom.createPortal(<Modal getIdToDelete={props.getIdToDelete} showDeleteModal = {showDeleteModal} deleteModal ={deleteModal} getInformationSubtaskState={props.getInformationSubtaskState} taskInformation={props.taskInformation} showCrudActions={showCrudActions} showCrudActionsHandler={showCrudActionsHandler}/>, document.getElementById('modal-root'))}
+            {ReactDom.createPortal(<Modal getTaskEdited={props.getTaskEdited} editModal={editModal} showEditModal={showEditModal} getIdToDelete={props.getIdToDelete} showDeleteModal = {showDeleteModal} deleteModal ={deleteModal} getInformationSubtaskState={props.getInformationSubtaskState} taskInformation={props.taskInformation} showCrudActions={showCrudActions} showCrudActionsHandler={showCrudActionsHandler}/>, document.getElementById('modal-root'))}
         </>
   )
 }

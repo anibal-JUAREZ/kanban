@@ -6,6 +6,11 @@ const TaskCard = (props) => {
 
   const [showTaskDescription, setShowTaskDescription]= useState(false);
 
+  //RECEIVE THE TASK TO EDIT
+  const getTaskEdited=(task)=>{
+    props.updateTask(task);
+  }
+
   //RECEIVING THE ID TO DELETE
   const getIdToDelete=(id)=>{
     props.deleteTask(id);
@@ -31,7 +36,7 @@ const TaskCard = (props) => {
             <h3>{props.title}</h3>
             <p>{`${tasksCompleted} of ${props.subtasks.length} substasks`}</p>
         </div>
-        {showTaskDescription && <TaskCardDescription getIdToDelete={getIdToDelete} showTaskDescriptionHandler={showTaskDescriptionHandler} taskInformation={props} getInformationSubtaskState={getInformationSubtaskState}/>}
+        {showTaskDescription && <TaskCardDescription getTaskEdited ={getTaskEdited} getIdToDelete={getIdToDelete} showTaskDescriptionHandler={showTaskDescriptionHandler} taskInformation={props} getInformationSubtaskState={getInformationSubtaskState}/>}
     </>
   )
 }
