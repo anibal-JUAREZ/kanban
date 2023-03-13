@@ -80,7 +80,8 @@ const TaskCardDescription = (props) => {
         setShowCrudActions(!showCrudActions)
     )
     const showDeleteModal=()=>{
-        setDeleteModal(!deleteModal)
+        setDeleteModal(!deleteModal);
+        showCrudActionsHandler();
     }
     const showEditModal=()=>{
         setEditModal(!editModal)
