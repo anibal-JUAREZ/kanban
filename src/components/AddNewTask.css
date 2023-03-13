@@ -89,6 +89,7 @@
         border-radius: .25rem;
         padding: .6rem 1rem;
         color: #000112;
+        display: inline-block;
    }
 
    .error{

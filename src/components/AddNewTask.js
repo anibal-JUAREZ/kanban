@@ -147,7 +147,6 @@ const Modal = (props) =>{
     <div className='display'>
         <label>Status</label>
         <select data-property ="status" onChange={getTaskInformation} name="actions" id="actions">
-            
             <option value="Todo">Todo</option>
             <option value="Doing">Doing</option>
             <option value="Done">Done</option>
