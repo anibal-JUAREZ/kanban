@@ -29,6 +29,11 @@
         "id": 5,
         "description": "You can scroll horizontally to see the tasks for the mobile screen.",
         "status": "active"
+      },
+      {
+        "id": 6,
+        "description": "Click outside the window to close it.",
+        "status": "active"
       }
     ]
   }

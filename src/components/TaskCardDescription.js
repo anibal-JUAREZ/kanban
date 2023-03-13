@@ -84,6 +84,7 @@ const TaskCardDescription = (props) => {
     }
     const showEditModal=()=>{
         setEditModal(!editModal)
+        showCrudActionsHandler();
     }
   return (
         <>  
