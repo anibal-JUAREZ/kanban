@@ -5,7 +5,7 @@
     width: 100%;
     height: 100vh;
     z-index: 9;
-    background-color: transparent;
+    background-color:rgba(130, 143, 163, 0.7);
   }
 
   .task-detail-description {
@@ -13,9 +13,9 @@
     top: 20vh; 
     left: 30%;
      width: 40%;
-    color: #fff;
+     color:#828FA3;
      z-index: 10;
-     background-color: #2B2C37;
+     background-color: #FFFFFF;
      border: none;
      box-shadow: 2px 4px 12px rgb(0 0 0 / 8%);
      border-radius: 0.5rem;
@@ -32,7 +32,7 @@
 
    .task-detail-description .header-task h3{
         width: 90%;
-       
+        color: #000112;
    }
 
    .task-detail-description .header-task svg{
@@ -57,13 +57,17 @@
 .task-detail-description p:nth-of-type(2){
     font-size: .8rem;
     font-weight: 800;
+   
 }
 
+
+
 .task-detail-description .status
+
 {
     font-size: .8rem;
-    font-weight: 800;
     margin: 1rem 0;
+    font-weight: 800;
 }
 
 .task-detail-description select{
@@ -72,11 +76,11 @@
     background-color: transparent;
     border: 1px solid #828FA3;
     border-radius: .25rem;
-    color: #fff;
+    color: #000112;
 }
 .crud-actions{
     width: 40%;
-    background-color: #20212C;
+    background-color: #fff;
     padding: 1rem;
     font-size: .8rem;
     border-radius: .5rem;

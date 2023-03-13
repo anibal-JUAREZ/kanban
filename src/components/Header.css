@@ -3,7 +3,7 @@ header{
     align-items: center;
     justify-content: space-between;
     padding: 1rem 3rem 2rem;
-    background-color: #2B2C37;
+    background-color: #fff;
 }
 
 header .logo-mobile{
@@ -11,7 +11,7 @@ header .logo-mobile{
 }
 
 header p{
-    color: #fff;
+    color: #000112;
     font-weight: 800;
     width: 70%;
     text-align: left;
@@ -33,10 +33,12 @@ header button{
 header button svg{
     width: .7rem;
     height: .7rem;
+    transform: scale(0.7);
 }
 
 header button p{
     font-size: .7rem;
+    color: #fff;
 }
 
 

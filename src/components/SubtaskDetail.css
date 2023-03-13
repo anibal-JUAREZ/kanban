@@ -2,7 +2,7 @@
     display: flex;
     align-items: center;
     padding: .7rem ;
-    background-color: #20212C;
+    background-color: #F4F7FD;
     border-radius: .25rem;
     margin: 0.5rem 0;
 }
@@ -27,11 +27,13 @@
 
 .paragraph-check{
     text-decoration: line-through;
-    color: #828FA3;
+    color: #828FA3 !important;
 }
 
 .check-subtask p{
     font-size: .8rem;
+    color: #000112;
+    font-weight: 800;
 }
 
  /* RESPONSIVE  */

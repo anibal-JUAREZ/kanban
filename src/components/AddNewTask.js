@@ -8,7 +8,7 @@ const Backdrop = ({showAddNewTaskHandler}) =>{
 
 const Modal = (props) =>{
     //NEW TASK INITIAL VALUES 
-    const [newTask, setNewTask]=useState({title:"",description:"",subtasks:[], status:""});
+    const [newTask, setNewTask]=useState({title:"",description:"",subtasks:[], status:"Todo"});
     const [subTaskValue, setSubtaskValue]=useState("");
     const [error, setError]=useState({title:false, description:false,status:false});
   
@@ -147,7 +147,7 @@ const Modal = (props) =>{
     <div className='display'>
         <label>Status</label>
         <select data-property ="status" onChange={getTaskInformation} name="actions" id="actions">
-            <option value=""></option>
+            
             <option value="Todo">Todo</option>
             <option value="Doing">Doing</option>
             <option value="Done">Done</option>

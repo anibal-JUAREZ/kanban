@@ -16,7 +16,7 @@
      width: 40%;
     color: #fff;
      z-index: 10;
-     background-color: #2B2C37;
+     background-color: #fff;
      border: none;
      box-shadow: 2px 4px 12px rgb(0 0 0 / 8%);
      border-radius: 0.5rem;
@@ -52,7 +52,7 @@
    }
 
    .action-delete-task button:last-of-type{
-    background-color: #fff;
+    background-color: rgba(98, 95, 199, 0.1);;
     color: #635FC7;
    }
   

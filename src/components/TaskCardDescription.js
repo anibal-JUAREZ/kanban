@@ -36,6 +36,7 @@ const Modal =(props)=>{
   const getTaskToEdit = (task)=>{
     props.getTaskEdited(task);
     props.showEditModal();
+    props.showCrudActionsHandler();
   }
 
     return <div className='task-detail-description'>
@@ -50,7 +51,7 @@ const Modal =(props)=>{
     </div>}
     
     <p className='description'>{props.taskInformation.description}</p>
-    <p>{`Substasks (${tasksCompleted} of ${props.taskInformation.subtasks.length})`}</p>
+    <p className='subtask'>{`Substasks (${tasksCompleted} of ${props.taskInformation.subtasks.length})`}</p>
         {
             props.taskInformation.subtasks.map(subtask=>(
                 <SubtaskDetail subtaskInformation={subtask} getSubtaskId={getSubtaskId}/>
