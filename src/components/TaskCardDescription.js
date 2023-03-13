@@ -42,7 +42,7 @@ const Modal =(props)=>{
     return <div className='task-detail-description'>
     <div className='header-task'>
         <h3>{props.taskInformation.title}</h3>
-        <svg onClick={props.showCrudActionsHandler} width="5" height="20" xmlns="http://www.w3.org/2000/svg"><g fill="#828FA3" fill-rule="evenodd"><circle cx="2.308" cy="2.308" r="2.308"/><circle cx="2.308" cy="10" r="2.308"/><circle cx="2.308" cy="17.692" r="2.308"/></g></svg>
+        <svg onClick={props.showCrudActionsHandler} width="5" height="20" xmlns="http://www.w3.org/2000/svg"><g fill="#828FA3" fillRule="evenodd"><circle cx="2.308" cy="2.308" r="2.308"/><circle cx="2.308" cy="10" r="2.308"/><circle cx="2.308" cy="17.692" r="2.308"/></g></svg>
     </div>
 
     {props.showCrudActions && <div className='crud-actions'>
@@ -54,7 +54,7 @@ const Modal =(props)=>{
     <p className='subtask'>{`Substasks (${tasksCompleted} of ${props.taskInformation.subtasks.length})`}</p>
         {
             props.taskInformation.subtasks.map(subtask=>(
-                <SubtaskDetail subtaskInformation={subtask} getSubtaskId={getSubtaskId}/>
+                <SubtaskDetail key = {subtask.id} subtaskInformation={subtask} getSubtaskId={getSubtaskId}/>
             ))
         }
         

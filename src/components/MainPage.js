@@ -13,6 +13,16 @@ const [allTasks, setAllTasks]=useState([]);
 //VARIABLE SHOW THE NEW TASK WINDOW
 const [showAddNewTask, setShowAddNewTask]= useState(false);
 
+//UPLOADING THE INSTRUCTIONS TO USE THE APP
+useEffect(()=>{
+    fetch('data.json')
+      .then(response => response.json())
+      .then(data => {
+        setAllTasks(data);
+        
+      });
+},[])
+
 //DELETE TASK
 const deleteTask=(id)=>{
     setAllTasks(state=>{
@@ -87,7 +97,7 @@ const addNewTask=(task)=>{
         }
         task.id=id+1;
         copy.push(task);
-        
+     
         return copy;
 
     })
@@ -115,6 +125,7 @@ const changeTheSubtask=(idTask, idSubtask)=>{
             const copy=[...state];
             const index=copy.findIndex(e=>e.id===task.id);
             copy.splice(index, 1, task);
+            
             return copy;
         })
     }
@@ -123,7 +134,7 @@ const changeTheSubtask=(idTask, idSubtask)=>{
         <Header showAddNewTaskHandler={showAddNewTaskHandler}/>
         
             <section className='task-display'>
-                <article>
+                {allTasks.length>0 ? <><article>
                     <section className='title'>
                         <div className='circle'></div>
                         <p>{`TODO (${toDoTask})`}</p>
@@ -198,7 +209,7 @@ const changeTheSubtask=(idTask, idSubtask)=>{
                             
                         })}
                     </section>
-                </article>
+                </article></> : <p className='no-task'>No tasks added yet</p>}
             </section>
         
         {showAddNewTask && <AddNewTask showAddNewTaskHandler={showAddNewTaskHandler} addNewTask={addNewTask}/>}
