@@ -209,7 +209,7 @@ const changeTheSubtask=(idTask, idSubtask)=>{
                             
                         })}
                     </section>
-                </article></> : <p className='no-task'>No tasks added yet</p>}
+                </article></> : <p className='no-task'>There is nothing here<br></br><span>Create a new task by clicking on the Add New Task button and get started</span></p>}
             </section>
         
         {showAddNewTask && <AddNewTask showAddNewTaskHandler={showAddNewTaskHandler} addNewTask={addNewTask}/>}
