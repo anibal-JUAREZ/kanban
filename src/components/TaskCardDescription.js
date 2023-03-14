@@ -36,9 +36,10 @@ const Modal =(props)=>{
   const getTaskToEdit = (task)=>{
     props.getTaskEdited(task);
     props.showEditModal();
-    props.showCrudActionsHandler();
+    
   }
 
+ 
     return <div className='task-detail-description'>
     <div className='header-task'>
         <h3>{props.taskInformation.title}</h3>
@@ -85,7 +86,9 @@ const TaskCardDescription = (props) => {
     }
     const showEditModal=()=>{
         setEditModal(!editModal)
-        showCrudActionsHandler();
+        if(!editModal){
+            showCrudActionsHandler();
+        }
     }
   return (
         <>  

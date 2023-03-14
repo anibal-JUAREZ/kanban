@@ -97,6 +97,16 @@ const Modal = (props) =>{
         setSubtaskValue("");
     }
 
+
+    const editSubtaskAddForm=(id, subtask)=>{
+        setNewTask(state=>{
+            const copy = {...state};
+            const index = copy.subtasks.findIndex(e=>e.id === id);
+            copy.subtasks[index].description=subtask;
+            return copy;
+        })
+     }
+
     //DELETE SUBTASK
     const deleteSubtask=(id)=>{
         setNewTask(state=>{
@@ -107,18 +117,19 @@ const Modal = (props) =>{
         })
     }
 
+
    
 
     return  <div className="new-task-form">
     <h3>Add New Task</h3>
     <div className='display'>
-        <label>Title</label>
-        <input data-property= "title" onChange={getTaskInformation} placeholder={error.title ? "Can't be empty" :'e.g. Take coffee break'} type="text"/>
+        <label className={error.title ? 'error-title' : ''}>Title</label>
+        <input className={error.title ? 'error-border' : ''} data-property= "title" onChange={getTaskInformation} placeholder='e.g. Take coffee break' type="text"/>
     </div>
    {error.title && <p className='error'>Can't be empty</p>}
     <div className='display'>
-        <label>Description</label>
-        <textarea onChange={getTaskInformation} data-property= "description" placeholder='e.g. It’s always good to take a break. This 15 minute break will 
+        <label className={error.title ? 'error-title' : ''}>Description</label>
+        <textarea className={error.title ? 'error-border' : ''} onChange={getTaskInformation} data-property= "description" placeholder='e.g. It’s always good to take a break. This 15 minute break will 
         recharge the batteries a little.'>
 
         </textarea>
@@ -133,6 +144,7 @@ const Modal = (props) =>{
                 id={subtask.id}
                 description={subtask.description}
                 deleteSubtask={deleteSubtask}
+                editSubtask={editSubtaskAddForm}
             />
         ))}
         <div className='subtask-information'>

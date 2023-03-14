@@ -95,6 +95,14 @@
       color: #EA5555;
       font-size: .6rem;
    }
+
+   .error-title{
+    color: #EA5555;
+   }
+
+  .error-border{
+    border-color: #EA5555;
+  }
   
 .subtasks{
   margin-top: .5rem;

@@ -18,7 +18,8 @@
      z-index: 10;
      background-color: #fff;
      border: none;
-     box-shadow: 2px 4px 12px rgb(0 0 0 / 8%);
+     
+     box-shadow: 1px 4px 7px 0 rgba(130, 143, 163, 0.2);
      border-radius: 0.5rem;
      padding: 3rem;
      /* overflow: hidden; */

@@ -4,8 +4,7 @@
     justify-content: space-between;
   
 }
-
-.subtask-crud p{
+.subtask-crud input{
     width: 90%;
     margin-top: 1rem;
     background-color: #fff;
@@ -14,6 +13,16 @@
     padding: .5rem;
     color: #000112;
 }
+
+/* .subtask-crud p{
+    width: 90%;
+    margin-top: 1rem;
+    background-color: #fff;
+    border: 1px solid #828FA3;
+    border-radius: .25rem;
+    padding: .5rem;
+    color: #000112;
+} */
 
 .subtask-crud svg{
    margin-left: .5rem;
@@ -25,3 +34,21 @@
 .subtask-crud svg:hover{
     color:#EA5555;
  } 
+
+ .error{
+    margin-top: .2rem;
+    color: #EA5555;
+    font-size: .6rem;
+ }
+
+ .error-border{
+    border-color: #EA5555;
+  }
+
+  .updated{
+    color: #33D69F;
+    font-size: .6rem;
+    margin-top: .2rem;
+  }
+
+  

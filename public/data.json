@@ -12,7 +12,7 @@
       },
       {
         "id": 2,
-        "description": "You can delete the subtask by clicking the \"X\" next to the subtask.",
+        "description": "You can delete the subtask by clicking the \"X\" next it.",
         "status": "active"
       },
       {
@@ -27,12 +27,17 @@
       },
       {
         "id": 5,
-        "description": "You can scroll horizontally to see the tasks for the mobile screen.",
+        "description": "You can scroll horizontally to see the tasks ony for mobile screen size.",
         "status": "active"
       },
       {
         "id": 6,
-        "description": "Click outside the window to close it.",
+        "description": "To close a window you only have to click outside.",
+        "status": "active"
+      },
+      {
+        "id": 7,
+        "description": "To update a substask you have to type in the new content and hit enter",
         "status": "active"
       }
     ]

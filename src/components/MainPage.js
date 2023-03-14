@@ -22,6 +22,8 @@ useEffect(()=>{
         
       });
 },[])
+//MESSAGE THAT SHOWS 0 TASKS ADDED
+const noTaskAdded=<div className='no-task'><p>There is nothing here</p><p className='second-paragraph'>Create a new task by clicking on the <span>Add New Task </span> button and get started</p></div>
 
 //DELETE TASK
 const deleteTask=(id)=>{
@@ -209,7 +211,7 @@ const changeTheSubtask=(idTask, idSubtask)=>{
                             
                         })}
                     </section>
-                </article></> : <p className='no-task'>There is nothing here<br></br><span>Create a new task by clicking on the Add New Task button and get started</span></p>}
+                </article></> : noTaskAdded}
             </section>
         
         {showAddNewTask && <AddNewTask showAddNewTaskHandler={showAddNewTaskHandler} addNewTask={addNewTask}/>}
